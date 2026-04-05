@@ -1,16 +1,114 @@
-# React + Vite
+# 💰 Finance Dashboard UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean and interactive finance dashboard built to track financial activity, visualize spending patterns, and explore transactions.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Overview
 
-## React Compiler
+This project is a frontend-only finance dashboard designed to simulate how users can monitor their financial data. It focuses on UI design, component structure, and state management.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 📊 Dashboard Overview
+
+* Summary cards (Total Balance, Income, Expenses)
+* Time-based chart (balance trend)
+* Category-wise spending breakdown
+
+### 💳 Transactions
+
+* List of transactions with:
+
+  * Date
+  * Amount
+  * Category
+  * Type (Income/Expense)
+* Search and filtering
+* Sorting functionality
+
+### 👤 Role-Based UI (Simulated)
+
+* **Viewer** → Can only view data
+* **Admin** → Can add/edit transactions
+* Role switching via dropdown
+
+### 📈 Insights
+
+* Highest spending category
+* Monthly comparison
+* Basic financial insights from data
+
+---
+
+## 🧠 State Management
+
+* Managed using React Context API (or local state)
+* Handles:
+
+  * Transactions data
+  * Filters
+  * User role
+
+---
+
+## 🎨 UI & UX
+
+* Responsive design (mobile + desktop)
+* Clean and minimal interface
+* Handles empty states gracefully
+
+---
+
+## ⚙️ Tech Stack
+
+* React (Vite)
+* Tailwind CSS
+* Recharts (for charts)
+* JavaScript (ES6+)
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/Sweety-Mitra/Finance_Dashboard.git
+cd finance_dashboard
+npm install
+npm run dev
+```
+
+---
+
+## 🛠️ Approach
+
+This project focuses on:
+
+* Building reusable UI components
+* Structuring a scalable frontend architecture
+* Managing state effectively
+* Keeping UI clean and user-friendly
+
+---
+
+## 📌 Notes
+
+* Uses mock data (no backend required)
+* Role-based functionality is simulated on frontend
+
+---
+
+## 🚧 Future Improvements
+
+* Dark mode
+* Local storage persistence
+* Export data (CSV/JSON)
+* Advanced filtering
+
+---
+
+## 🙌 Author
+
+Sweety Mitra
