@@ -13,4 +13,18 @@ export const transactions = [
     category: "Food",
     type: "expense",
   },
+  {
+    id: 3,
+    date: "2026-04-03",
+    amount: 800,
+    category: "Transport",
+    type: "expense",
+  },
+  {
+    id: 4,
+    date: "2026-04-04",
+    amount: 2000,
+    category: "Freelance",
+    type: "income",
+  },
 ];
