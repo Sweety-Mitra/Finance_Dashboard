@@ -3,6 +3,7 @@ import Header from "./components/common/Header";
 import { useContext } from "react";
 import { AppContext } from "./context/AppContext";
 import SummaryCards from "./components/dashboard/SummaryCards";
+import Charts from "./components/dashboard/Charts";
 
 function App() {
   const { transactions, role } = useContext(AppContext);
@@ -14,6 +15,8 @@ function App() {
         <Header />
         <p className="mb-4">Current Role: {role}</p>
         <SummaryCards/>
+        <SummaryCards />
+        <Charts />
         <p>Main Content</p>
       </main>
     </div>
