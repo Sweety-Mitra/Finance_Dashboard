@@ -6,6 +6,7 @@ import SummaryCards from "./components/dashboard/SummaryCards";
 import Charts from "./components/dashboard/Charts";
 import TransactionTable from "./components/transactions/TransactionTable";
 import AddTransaction from "./components/transactions/AddTransaction";
+import Insights from "./components/insights/Insights";
 
 function App() {
   const { transactions, role } = useContext(AppContext);
@@ -20,7 +21,7 @@ function App() {
         <Charts />
         <AddTransaction/>
         <TransactionTable />
-        <p>Main Content</p>
+        <Insights/>
       </main>
     </div>
   );

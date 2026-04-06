@@ -81,7 +81,7 @@ const TransactionTable = () => {
                                         <td>
                                             <button
                                                 onClick={() => handleDelete(t.id)}
-                                                className="text-red-500"
+                                                className="text-red-500 hover:underline"
                                             >
                                                 Delete
                                             </button>
