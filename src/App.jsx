@@ -11,17 +11,25 @@ import Insights from "./components/insights/Insights";
 function App() {
   const { transactions, role } = useContext(AppContext);
   return (
-    <div className="flex h-screen">
+    <div className="flex min-h-screen">
       <Sidebar />
 
-      <main className="flex-1 bg-gray-100 p-6">
+      <main className="flex-1 bg-gray-100 p-6 space-y-6">
         <Header />
         <p className="mb-4">Current Role: {role}</p>
-        <SummaryCards/>
-        <Charts />
-        <AddTransaction/>
-        <TransactionTable />
-        <Insights/>
+        <div id="dashboard">
+          <SummaryCards />
+          <Charts />
+        </div>
+
+        <div id="transactions">
+          <AddTransaction />
+          <TransactionTable />
+        </div>
+
+        <div id="insights">
+          <Insights />
+        </div>
       </main>
     </div>
   );
