@@ -5,6 +5,7 @@ import { AppContext } from "./context/AppContext";
 import SummaryCards from "./components/dashboard/SummaryCards";
 import Charts from "./components/dashboard/Charts";
 import TransactionTable from "./components/transactions/TransactionTable";
+import AddTransaction from "./components/transactions/AddTransaction";
 
 function App() {
   const { transactions, role } = useContext(AppContext);
@@ -17,6 +18,7 @@ function App() {
         <p className="mb-4">Current Role: {role}</p>
         <SummaryCards/>
         <Charts />
+        <AddTransaction/>
         <TransactionTable />
         <p>Main Content</p>
       </main>

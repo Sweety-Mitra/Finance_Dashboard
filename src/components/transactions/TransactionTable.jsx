@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 
 const TransactionTable = () => {
-    const { transactions } = useContext(AppContext);
+    const { transactions, setTransactions, role } = useContext(AppContext);
     const [search, setSearch] = useState("");
     const [filterType, setFilterType] = useState("all");
 
@@ -16,6 +16,10 @@ const TransactionTable = () => {
 
         return matchesSearch && matchesType;
     });
+
+    const handleDelete = (id) => {
+        setTransactions(transactions.filter((t) => t.id !== id));
+    };
 
     return (
         <div className="bg-white p-4 rounded shadow mt-6">
@@ -53,6 +57,7 @@ const TransactionTable = () => {
                             <th>Category</th>
                             <th>Type</th>
                             <th>Amount</th>
+                            {role === "admin" && <th>Action</th>}
                         </tr>
                     </thead>
 
@@ -71,6 +76,18 @@ const TransactionTable = () => {
                                     {t.type}
                                 </td>
                                 <td>₹ {t.amount}</td>
+                                <td>
+                                    {role === "admin" && (
+                                        <td>
+                                            <button
+                                                onClick={() => handleDelete(t.id)}
+                                                className="text-red-500"
+                                            >
+                                                Delete
+                                            </button>
+                                        </td>
+                                    )}
+                                </td>
                             </tr>
                         ))}
                     </tbody>
