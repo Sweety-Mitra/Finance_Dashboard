@@ -5,18 +5,16 @@ const Header = () => {
   const { role, setRole } = useContext(AppContext);
 
   return (
-    <div className="flex justify-between items-center mb-6">
-      <h2 className="text-2xl font-semibold">Dashboard</h2>
+    <header className="bg-white border-b px-6 py-4 flex justify-between items-center sticky top-0 z-10">
+      <h1 className="text-lg font-semibold">Finance Dashboard</h1>
 
       <select
-        value={role}
-        onChange={(e) => setRole(e.target.value)}
-        className="border px-3 py-1 rounded"
+        className="border px-3 py-1 rounded text-sm"
       >
-        <option value="viewer">Viewer</option>
-        <option value="admin">Admin</option>
+        <option>Viewer</option>
+        <option>Admin</option>
       </select>
-    </div>
+    </header>
   );
 };
 

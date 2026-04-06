@@ -7,30 +7,48 @@ import Charts from "./components/dashboard/Charts";
 import TransactionTable from "./components/transactions/TransactionTable";
 import AddTransaction from "./components/transactions/AddTransaction";
 import Insights from "./components/insights/Insights";
+import Footer from "./components/common/Footer";
 
 function App() {
-  const { transactions, role } = useContext(AppContext);
   return (
-    <div className="flex min-h-screen">
-      <Sidebar />
+    <div className="h-screen flex flex-col">
 
-      <main className="flex-1 bg-gray-100 p-6 space-y-6">
-        <Header />
-        <p className="mb-4">Current Role: {role}</p>
-        <div id="dashboard">
-          <SummaryCards />
-          <Charts />
-        </div>
+      {/* Header */}
+      <Header />
 
-        <div id="transactions">
-          <AddTransaction />
-          <TransactionTable />
-        </div>
+      {/* Body */}
+      <div className="flex flex-1 overflow-hidden">
 
-        <div id="insights">
-          <Insights />
-        </div>
-      </main>
+        {/* Sidebar */}
+        <Sidebar />
+
+        {/* Main */}
+        <main className="flex-1 bg-gray-100 p-6 overflow-y-auto">
+
+          <div className="space-y-8 max-w-6xl mx-auto">
+
+            <div id="dashboard" className="scroll-mt-24">
+              <SummaryCards />
+              <Charts />
+            </div>
+
+            <div id="transactions" className="scroll-mt-24">
+              <AddTransaction />
+              <TransactionTable />
+            </div>
+
+            <div id="insights" className="scroll-mt-24">
+              <Insights />
+            </div>
+
+          </div>
+
+        </main>
+      </div>
+
+      {/* Footer */}
+      <Footer />
+
     </div>
   );
 }
