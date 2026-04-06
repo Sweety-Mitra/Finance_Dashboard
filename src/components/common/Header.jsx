@@ -1,19 +1,58 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 
 const Header = () => {
   const { role, setRole } = useContext(AppContext);
 
+  const [dark, setDark] = useState(false);
+
+  // load saved theme
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      setDark(true);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    if (dark) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
+    setDark(!dark);
+  };
+
   return (
-    <header className="bg-white border-b px-6 py-4 flex justify-between items-center sticky top-0 z-10">
+    <header className="bg-purple-100 dark:bg-gray-800 border-b px-6 py-4 flex justify-between items-center sticky top-0 z-10 text-black dark:text-white">
+      
       <h1 className="text-lg font-semibold">Finance Dashboard</h1>
 
-      <select
-        className="border px-3 py-1 rounded text-sm"
-      >
-        <option>Viewer</option>
-        <option>Admin</option>
-      </select>
+      <div className="flex items-center gap-3">
+        
+        {/* Role */}
+        <select
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+          className="border px-3 py-1 rounded text-sm bg-white dark:bg-gray-700 text-black dark:text-white"
+        >
+          <option value="viewer">Viewer</option>
+          <option value="admin">Admin</option>
+        </select>
+
+        {/* Dark Mode Toggle */}
+        <button
+          onClick={toggleTheme}
+          className="px-3 py-1 border rounded text-sm"
+        >
+          {dark ? "☀️" : "🌙"}
+        </button>
+
+      </div>
     </header>
   );
 };

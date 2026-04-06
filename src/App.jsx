@@ -23,7 +23,7 @@ function App() {
         <Sidebar />
 
         {/* Main */}
-        <main className="flex-1 bg-gray-100 p-6 overflow-y-auto">
+        <main className="flex-1 bg-gray-100 dark:bg-gray-900 text-black dark:text-white p-6 overflow-y-auto">
 
           <div className="space-y-8 max-w-6xl mx-auto">
 

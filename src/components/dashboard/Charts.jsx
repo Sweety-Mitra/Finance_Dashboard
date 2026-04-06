@@ -15,15 +15,14 @@ import {
 const Charts = () => {
   const { transactions } = useContext(AppContext);
 
-  // Line Chart Data (balance trend)
+  // Line Chart Data
   const lineData = transactions.map((t) => ({
     date: t.date,
     amount: t.type === "income" ? t.amount : -t.amount,
   }));
 
-  // Pie Chart Data (category breakdown)
+  // Pie Chart Data
   const categoryMap = {};
-
   transactions.forEach((t) => {
     if (t.type === "expense") {
       categoryMap[t.category] =
@@ -40,33 +39,65 @@ const Charts = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
       {/* Line Chart */}
-      <div className="bg-white p-4 rounded shadow">
-        <h3 className="mb-2 font-semibold">Balance Trend</h3>
+      <div className="bg-slate-200 dark:bg-gray-800 text-black dark:text-white p-5 rounded-2xl shadow-sm">
+        <h3 className="mb-3 font-semibold text-lg">
+          Balance Trend
+        </h3>
+
         <ResponsiveContainer width="100%" height={250}>
           <LineChart data={lineData}>
-            <XAxis dataKey="date" />
-            <YAxis />
-            <Tooltip />
-            <Line type="monotone" dataKey="amount" stroke="#3b82f6" />
+            <XAxis
+              dataKey="date"
+              stroke="#9ca3af" // gray-400
+            />
+            <YAxis stroke="#9ca3af" />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: "#1f2937", // dark bg
+                border: "none",
+                color: "#fff",
+              }}
+            />
+            <Line
+              type="monotone"
+              dataKey="amount"
+              stroke="#3b82f6"
+              strokeWidth={2}
+            />
           </LineChart>
         </ResponsiveContainer>
       </div>
 
       {/* Pie Chart */}
-      <div className="bg-white p-4 rounded shadow">
-        <h3 className="mb-2 font-semibold">Spending Breakdown</h3>
+      <div className="bg-slate-200 dark:bg-gray-800 text-black dark:text-white p-5 rounded-2xl shadow-sm">
+        <h3 className="mb-3 font-semibold text-lg">
+          Spending Breakdown
+        </h3>
+
         <ResponsiveContainer width="100%" height={250}>
           <PieChart>
             <Pie data={pieData} dataKey="value" outerRadius={80}>
               {pieData.map((_, index) => (
-                <Cell key={index} fill={COLORS[index % COLORS.length]} />
+                <Cell
+                  key={index}
+                  fill={COLORS[index % COLORS.length]}
+                />
               ))}
             </Pie>
-            <Tooltip />
+
+            <Tooltip
+              contentStyle={{
+                backgroundColor: "#1f2937",
+                border: "none",
+                color: "#fff",
+              }}
+            />
           </PieChart>
         </ResponsiveContainer>
       </div>
+
     </div>
   );
 };
